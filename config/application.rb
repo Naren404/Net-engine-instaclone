@@ -31,5 +31,9 @@ module Instaclone
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Don't generate assets and helpers
+    config.generators.assets = false
+    config.generators.helper = false
   end
 end
