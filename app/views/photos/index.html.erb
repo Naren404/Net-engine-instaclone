@@ -1,0 +1,20 @@
+<div>
+  <p>
+    <%= link_to "Upload photos", new_photo_path %>
+  </p>
+
+  <% if @photos.empty? %>
+    <p>There is still no photos to display.</p>
+  <% else %>
+    <% @photos.each do |photo| %>
+      <div>
+        <p>
+          <%= photo.user.username %>
+        </p>
+        <%= link_to photo_path(photo) do %>
+          <%= image_tag photo.photo.variant(combine_options: { resize: '200', gravity: 'Center', crop: '200x200+0+0' }) %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

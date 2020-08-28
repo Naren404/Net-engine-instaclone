@@ -1,0 +1,12 @@
+<div>
+  <p>
+    <%= @photo.user.username %>
+    <% if @photo.user.eql? current_user %>
+      <span> (<%= link_to 'delete photo', photo_path(@photo), method: :delete %>)</span>
+    <% end %>
+  </p>
+  <%= image_tag @photo.photo.variant(resize: "500x500") %>
+  <p>
+    <%= @photo.description %>
+  </p>
+</div>

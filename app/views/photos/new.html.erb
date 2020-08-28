@@ -1,0 +1,15 @@
+<div>
+  <%= form_with model: @photo do |f| %>
+    <p>
+      <%= f.label :photo, 'Upload file: ' %>
+      <%= f.file_field :photo %>
+    </p>
+
+    <p>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </p>
+
+    <%= f.submit 'Submit' %>
+  <% end %>
+</div>

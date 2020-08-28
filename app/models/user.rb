@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}
+
+  has_many :photos, dependent: :delete_all
 end
