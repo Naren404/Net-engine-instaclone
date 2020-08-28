@@ -53,6 +53,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Code analyser
   gem 'rubocop', require: false
+  # Preview emails in the browser
+  gem 'letter_opener'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
