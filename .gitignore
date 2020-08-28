@@ -7,6 +7,9 @@
 # Ignore RubyMine files.
 /.idea/*
 
+# Ignore test coverage files.
+/coverage/*
+
 # Ignore bundler config.
 /.bundle
 
