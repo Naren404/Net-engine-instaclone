@@ -1,0 +1,14 @@
+<div>
+  <%= form_with url: '/profiles', method: :get, local: true do %>
+    <%= label_tag :username, 'Search for: ' %>
+    <%= text_field_tag :username %>
+
+    <%= submit_tag 'Search' %>
+  <%end %>
+
+  <% @users.each do |user| %>
+    <p>
+      <%= link_to user.username, profile_path(user.username) %>
+    </p>
+  <% end %>
+</div>

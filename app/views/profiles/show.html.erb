@@ -1,0 +1,19 @@
+<div>
+  <h3><%= @user.username %>'s profile</h3>
+
+  <p>
+    <% if current_user&.eql? @user %>
+      <%= link_to "Upload photos", new_photo_path %>
+    <% end %>
+  </p>
+
+  <% if @user.photos.empty? %>
+    <p>There is still no photos to display.</p>
+  <% else %>
+    <% @user.photos.each do |photo| %>
+      <%= link_to photo_path(photo) do %>
+        <%= image_tag photo.photo.variant(combine_options: { resize: '200', gravity: 'Center', crop: '200x200+0+0' }) %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>

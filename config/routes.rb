@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     get '/users', to: 'devise/registrations#new'
   end
 
+  resources :profiles, only: [:index]
+  get 'profiles/:username', to: 'profiles#show', as: :profile
+
   resources :photos, only: [:index, :show, :new, :create, :destroy]
 
   root 'photos#index'
