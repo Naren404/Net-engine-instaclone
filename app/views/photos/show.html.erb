@@ -1,6 +1,6 @@
 <div>
   <p>
-    <%= @photo.user.username %>
+    <%= link_to @photo.user.username, profile_path(@photo.user.username) %>
     <% if @photo.user.eql? current_user %>
       <span> (<%= link_to 'delete photo', photo_path(@photo), method: :delete %>)</span>
     <% end %>
@@ -9,4 +9,43 @@
   <p>
     <%= @photo.description %>
   </p>
+
+  <h4>Comments:</h4>
+
+  <% if current_user %>
+    <%= form_with url: '/comments', method: :post do %>
+      <%= hidden_field_tag :photo_id, @photo.id %>
+
+      <%= label_tag :content, 'Add comment: ' %>
+      <%= text_area_tag :content %>
+
+      <%= submit_tag 'Submit' %>
+    <% end %>
+  <% end %>
+
+  <% @photo.comments.order(created_at: :asc).each do |comment| %>
+    <% username = comment.user.username %>
+    <p>
+      <span>
+        <%= link_to username, profile_path(username) %>:
+        <% if controller_name.eql? 'comments' and action_name.eql? 'edit' and comment.id.eql? @comment.id %>
+            <%= form_with model: @comment, method: :put do %>
+              <%= label_tag :content, 'Edit comment: ' %>
+            <%= text_area_tag :content, @comment.content %>
+
+            <%= submit_tag 'Submit' %>
+            <% end %>
+        <% else %>
+          <%= comment.content %>
+        <% end %>
+        <% if comment.user.eql? current_user %>
+          (
+          <%= link_to 'edit', edit_comment_path(comment) %>
+          |
+          <%= link_to 'delete', comment_path(comment), method: :delete %>
+          )
+        <% end %>
+      </span>
+    </p>
+  <% end %>
 </div>

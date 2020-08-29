@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :photos, only: [:index, :show, :new, :create, :destroy]
 
+  resources :comments, only: [:create, :edit, :update, :destroy]
+
   root 'photos#index'
 
   get '*path', to: 'photos#index', constraints: lambda { |req| req.path.exclude? 'rails/active_storage' }
