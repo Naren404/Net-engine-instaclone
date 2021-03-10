@@ -12,7 +12,7 @@
   <% else %>
     <% @user.photos.each do |photo| %>
       <%= link_to photo_path(photo) do %>
-        <%= image_tag photo.photo.variant(combine_options: { resize: '200', gravity: 'Center', crop: '200x200+0+0' }) %>
+        <%= image_tag photo.photo.variant(resize: '200', gravity: 'Center', crop: '200x200+0+0') %>
       <% end %>
     <% end %>
   <% end %>
