@@ -15,7 +15,7 @@ This challenge involves extending an Instagram clone in Rails. You should add th
    3. Users should be able to accept or decline friend requests
    4. Users should be able to see a list of any user’s friends
 
-###Additional information:
+### Additional information:
 1. Frontend using **Haml** or **Erb**, <span style="color:#AA2020">without</span> **css**
 2. No limit on gem usage
 3. Do **not** spend more than 120 minutes on your implementation. You do not need to complete all the steps. We are evaluating what you can do in this timeframe and the quality of your work, not necessarily the quantity of code.
