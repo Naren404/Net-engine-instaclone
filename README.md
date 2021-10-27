@@ -32,6 +32,7 @@ You must have Docker Desktop installed for this to work, as the environment is d
 1. There is no CSS and JS included currently
 1. Frontend using **Haml** or **Erb**, _without_ **css**
 1. No limit on gem usage
+1. You can access the command line to run ruby code via `docker compose exec web sh`
 1. Do **not** spend more than 120 minutes on your implementation. You do not need to complete all the steps. We are evaluating what you can do in this timeframe and the quality of your work, not necessarily the quantity of code.
    We are looking for well structured and written code, following current Rails best practices. We will not evaluate your view logic. Testing is not a necessity, but will score you bonus points.
    Submission
@@ -41,4 +42,4 @@ Either
 1. Add the project as a public repository on your GitHub account, or
 1. Package up your code in a zip file
 
-Please supply a link or the zip file the ben.freke@scouttalent.com.au
+Please supply a link or the zip file the ben@netengine.com.au
