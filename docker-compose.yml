@@ -1,0 +1,25 @@
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app:delegated
+      - bundler_gems:/usr/local/bundle/
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    ports:
+      - "3000:3000"
+    init: true
+    environment:
+      POSTGRES_PASSWORD: example
+
+  db:
+    image: postgres:alpine
+    restart: always
+    init: true
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+  bundler_gems:

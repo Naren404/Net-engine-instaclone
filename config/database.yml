@@ -17,15 +17,15 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  username: <%= Rails.application.credentials.dig(:development, :db_username) %>
-  password: <%= Rails.application.credentials.dig(:development, :db_password) %>
+  username: postgres
+  password: <%= ENV.fetch("POSTGRES_PASSWORD") %>
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  host: localhost
+  host: db
   database: instaclone_development
 
   # The specified database role being used to connect to postgres.
@@ -60,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  host: localhost
+  host: db
   database: instaclone_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
