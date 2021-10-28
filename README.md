@@ -21,11 +21,11 @@ You must have Docker Desktop installed for this to work, as the environment is d
 
 ### How to run this application
 
-1. Once that has completed, type `docker compose run --rm web bundle install -j8`
+1. In the cloned directory, type `docker compose run --rm web bundle install -j8`
 1. Once that has completed, type `docker compose run --rm web yarn install`
 1. Once that has completed, type `docker compose up db -d`
 1. Once that has completed, type `docker compose run --rm web bundle exec rails db:setup`
-1. In the cloned directory, type `docker compose up -d`
+1. Once that has completed, type `docker compose up -d`
 1. In your browser, navigate to `https://localhost:3000`
 
 ### Additional information:
